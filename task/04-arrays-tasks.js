@@ -320,6 +320,11 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
+   let filtered = arr.filter(function(number, i){
+      if(i%2 != 0)
+      return String(number);
+   });
+   return filtered;
    throw new Error('Not implemented');
 }
 
@@ -339,7 +344,26 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+//    let newarr = [];
+// let result = arr.map(function(elem, i) {
+//    elem = String(elem);
+//    if(i>0) {
+//    let new_el = ', ' + elem;
+//    elem=elem.concat(new_el.repeat(i));
+//    }
+//    elem = elem.split(',');
+//    i+=i;
+  
+//    return String(elem);
+// });
+// result = result.join(', ');
+// result = result.split(', ');
+
+// if(result.length > 0) {
+// newarr = newarr.concat(result);
+// }
+// return newarr;
+throw new Error('Not implemented');
 }
 
 
@@ -357,6 +381,11 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
+   arr = arr.sort(function(a,b){
+      return b - a;
+   });
+   let newarr = arr.slice(0,3);
+   return newarr;
    throw new Error('Not implemented');
 }
  
@@ -375,6 +404,10 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
+   let filtered = arr.filter(function(elem){
+      return elem > 0 && typeof elem == 'number';
+   });
+   return filtered.length;
    throw new Error('Not implemented');
 }
  
@@ -383,7 +416,7 @@ function getPositivesCount(arr) {
  * 
  * @param {array} arr
  * @return {array}
- * 
+ * DANIIL ADVISED TO USE OBJECT
  * @example
  *   [] => []
  *   [ 'nine','one' ]                 => [ 'one', 'nine' ]
@@ -408,6 +441,13 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
+   let previous = 0;
+   if(arr.length == 0)
+   return 0;
+   let sum = arr.reduce(function(previous, current){
+      return previous += current;
+   });
+   return sum;
    throw new Error('Not implemented');
 }
  
@@ -424,6 +464,11 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
+   let falsy = [false, '', undefined, null, NaN, ,, 0];
+   let filtered = arr.filter(function(elem) {
+      return falsy.includes(elem);
+   });
+   return filtered.length;
    throw new Error('Not implemented');
 }
 
@@ -442,6 +487,10 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
+   let filtered = arr.filter(function(elem) {
+      return elem === item;
+   });
+   return filtered.length;
    throw new Error('Not implemented');
 }
 
@@ -457,6 +506,8 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
+   let concatenated = arr.join(',');
+   return concatenated;
    throw new Error('Not implemented');
 }
 
