@@ -558,7 +558,17 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]   
  */
+// fill(1, n,n+1)
 function getIdentityMatrix(n) {
+   // let arr = new Array(n);
+   // arr = arr.map(function(elem){
+   //    elem = [];
+   //    return elem.fill(0,0, n+1);
+   // });
+   // let newarr = arr.map(function(elem, i) {
+   //    return elem.fill(1, i,i+1);
+   // });
+   // return newarr;
    throw new Error('Not implemented');
 }
 
@@ -576,6 +586,13 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
+   let arr = [];
+   arr.length = end - start + 1;
+   arr.fill(0);
+   arr = arr.map(function(elem) {
+      return elem = start++;
+   });
+   return arr;
    throw new Error('Not implemented');
 }
 
@@ -591,6 +608,21 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
+  
+   // arr = arr.map(function(elem, i) {
+   //    if(arr.includes(elem) && arr.indexOf(elem) != i) {
+   //      arr.splice(i, 1).pop();
+        
+   //        i--;
+   //       // arr.length--;
+   //    } else {
+   //    return elem;
+   //    }
+   // });
+   // arr = arr.filter(function(elem) {
+   //    return typeof elem != 'undefined';
+   // })
+   // return arr;
    throw new Error('Not implemented');
 }
 
@@ -641,6 +673,18 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
+   // function childrenSelector(value) {
+   //    let newarr = [];
+   //    if(typeof value === 'string' || value instanceof String) {
+   //       return value.split('');
+   //    } else if (Array.isArray(value)){
+   //       return newarr.concat(value);
+   //    }
+   // }
+   // arr = arr.map(function(elem) {
+   //    return childrenSelector(elem);
+   // });
+   // return arr;
     throw new Error('Not implemented');
 }
 
@@ -681,6 +725,20 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
+   if(arr.length <= 1)
+   return arr;
+   let half_length = Math.floor(arr.length/2);
+   let temp = arr.slice(0, half_length);
+   let tempo = arr.slice((-1)*half_length);
+   let newarr = [];
+   if((temp.length + tempo.length)<arr.length) {
+      newarr = newarr.concat(tempo).concat(arr[half_length]).concat(temp);
+   } else {
+      newarr = newarr.concat(tempo).concat(temp);
+
+   }
+
+   return newarr;
     throw new Error('Not implemented');
 }
 
