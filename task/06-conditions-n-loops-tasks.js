@@ -30,6 +30,15 @@
  *
  */
 function getFizzBuzz(num) {
+    if(num % 3 == 0 && num % 5 == 0) {
+        return 'FizzBuzz';
+    } else if (num % 3 == 0) {
+        return 'Fizz';
+    } else if (num % 5 == 0) {
+        return 'Buzz';
+    } else {
+        return num;
+    }
     throw new Error('Not implemented');
 }
 
@@ -46,6 +55,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
+    let factorial = 1;
+    for (let i = 1; i <= n; i++) {
+        factorial*=i;
+    }
+    return factorial;
     throw new Error('Not implemented');
 }
 
@@ -63,6 +77,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
+    let sum = 0;
+    for (let i = n1; i <= n2; i++) {
+        sum += i;
+    }
+    return sum;
     throw new Error('Not implemented');
 }
 
@@ -82,6 +101,10 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
+    if(a>0 && a<(b+c) && b<(a+c) && c<(a+b))
+    return true;
+    else
+    return false;
     throw new Error('Not implemented');
 }
 
@@ -119,6 +142,17 @@ function isTriangle(a,b,c) {
  *  
  */
 function doRectanglesOverlap(rect1, rect2) {
+    let top = rect2.top <= rect1.top + rect1.height;
+    let left = rect2.left <= rect1.left + rect1.width;
+    if(rect1.top <= rect2.top && rect2.top <= rect1.top + rect1.height && left){
+        return true;
+    } else  if(rect1.left <= rect2.left && rect2.left <= rect1.left + rect1.width && top && left){
+        return true;
+    } else  if(rect1.left >= rect2.left && rect2.left <= rect1.left + rect1.width && top && left){
+        return true;
+    } else {
+        return false;
+    }
     throw new Error('Not implemented');
 }
 
@@ -150,6 +184,16 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
+    let x = circle.center.x;
+    let y = circle.center.y;
+    let r = circle.radius;
+
+    if(x - r <= point.x && point.x <= x + r && y - r <= point.y && point.y <= y + r
+        && point.y < y + r && point.x < x + r && (Math.pow(point.x - x, 2) + Math.pow(point.y - y, 2) < Math.pow(r,2))) {
+        return true;
+    } else {
+        return false;
+    }
     throw new Error('Not implemented');
 }
 
