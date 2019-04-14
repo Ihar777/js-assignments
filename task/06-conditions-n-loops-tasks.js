@@ -210,6 +210,22 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
+    let arr = str.split('');
+    let length = arr.length;
+    let result;
+    outer: for(let i = 0; i < length; i++) {
+        for (let j = 0; j < length; j++) {
+            if(arr[i] === arr[j] && i != j) continue outer;
+            if(j == length - 1){
+                result = arr[i];
+            }
+        }
+       return result;
+    }
+    if(result)
+    return result;
+    else
+    return null;
     throw new Error('Not implemented');
 }
 
@@ -236,6 +252,18 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+    let str ='';
+    if (a > b) {
+        let temp = a;
+        a = b;
+        b = temp;
+    }
+    if (isStartIncluded) str += '[';
+    else str += '(';
+    str += a + ', ' + b;
+    if(isEndIncluded) str += ']';
+    else str += ')';
+    return str;
     throw new Error('Not implemented');
 }
 
@@ -253,6 +281,10 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
+    let arr = str.split('');
+    arr = arr.reverse();
+    let newstr = arr.join('');
+    return newstr;
     throw new Error('Not implemented');
 }
 
@@ -270,6 +302,13 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
+    let str = '';
+    str += num;
+    let arr = str.split('');
+    arr = arr.reverse();
+    let newstr = arr.join('');
+    return newstr;
+
     throw new Error('Not implemented');
 }
 
@@ -295,6 +334,13 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
+    ccn = '' + ccn;
+        return ccn.split('')
+            .reverse()
+            .map( (x) => parseInt(x) )
+            .map( (x,idx) => idx % 2 ? x * 2 : x )
+            .map( (x) => x > 9 ? (x % 10) + 1 : x )
+            .reduce( (accum, x) => accum += x ) % 10 === 0;
     throw new Error('Not implemented');
 }
 
@@ -314,8 +360,24 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
+    var sum = num;
+    var str;
+    var arr = [];
+    do {
+        num = sum;
+    sum = 0;
+    // str = '';
+    str += new String("num");
+    arr = str.split();
+    for(let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+
+    } while (sum > 9);
+    return sum;
     throw new Error('Not implemented');
 }
+
 
 
 /**
