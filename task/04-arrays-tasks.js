@@ -39,27 +39,25 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   let i = 0;
-   let arr = [];
-   arr.length = len;
-   let newarr = [];
-   newarr.length = len;
-   if(len > 0) {
-      arr = arr.map(function(i) {
-         i++;
-         return arr[i] = i * 2 - 1;
-       });
-      } else {
-         return arr;
-      }
+   // let i = 0;
+   // let arr = [];
+   // arr.length = len;
+   // let newarr = [];
+   // newarr.length = len;
+   // if(len > 0) {
+   //    arr = arr.map(function(elem,i) {
+   //       i++;
+   //       return elem = i * 2 - 1;
+   //     });
+   //    } else {
+   //       return arr;
+   //    }
    
-   // let newarr = arr.map(function(i) {
-   //    i++;
-   //    return i * 2 - 1;
-   //  });
-
-
-   return arr;
+   // // let newarr = arr.map(function(i) {
+   // //    i++;
+   // //    return i * 2 - 1;
+   // //  });
+   // return arr;
    throw new Error('Not implemented');
 }
 
@@ -255,13 +253,8 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   // let str = arr.join('/n ');
-   // arr = str.split(' ');
-   // let newarr = arr.map(function(elem){
-   //    return arr.splice(arr.indexOf('n'), 0, '+');
-   // });
-
-   // return newarr;
+   let str = arr.join('\n');
+   return str;
 
    throw new Error('Not implemented');
 }
@@ -673,18 +666,39 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-   // function childrenSelector(value) {
-   //    let newarr = [];
-   //    if(typeof value === 'string' || value instanceof String) {
-   //       return value.split('');
-   //    } else if (Array.isArray(value)){
-   //       return newarr.concat(value);
-   //    }
-   // }
-   // arr = arr.map(function(elem) {
-   //    return childrenSelector(elem);
-   // });
-   // return arr;
+//    function childrenSelector(value) {
+//       let newarr = [];
+//       if(typeof value === 'string' || value instanceof String) {
+//          return value.split('');
+//       } else if (Array.isArray(value)){
+//          // value = value.flat();
+//           newarr = newarr.concat(value);
+//           flatten(newarr);
+//           return newarr;
+//       }
+//    }
+
+//    function flatten(ary) {
+//       var ret = [];
+
+//       ary = ary.map(function(elem) {
+
+//          if(Array.isArray(elem)) {
+//             ret = ret.concat(flatten(elem));
+//         } else {
+//             ret.push(elem);
+//         }
+
+
+//          return elem;
+//        });
+//       return ret;
+//   }
+   
+//    arr = arr.map(function(elem) {
+//       return childrenSelector(elem);
+//    });
+//    return arr;
     throw new Error('Not implemented');
 }
 
